@@ -6,3 +6,10 @@ actions:
     outputs:
       highly_sensitive:
         dataset: output/dataset.csv.gz
+
+  create_summary:
+    run: python:v2 python analysis/calc_resp02.py
+    needs: [generate_dataset]
+    outputs:
+      moderately_sensitive:
+        chart: output/resp02_summary.csv
